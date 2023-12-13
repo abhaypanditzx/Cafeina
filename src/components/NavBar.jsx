@@ -7,7 +7,7 @@ const NavBar = () => {
   const [isToggle, setIsToggle] = useState(false);
 
   return (
-    <nav className="bg-[#130803] sticky top-0 min-h-[50px] max-xs:h-[40px]  h-[70px] items-center flex z-50 justify-around max-xs:justify-between max-xs:px-4 w-full">
+    <nav className="bg-[#130803] sticky top-0 min-h-[60px] max-xs:h-[60px]  h-[70px] items-center flex z-50 justify-around max-xs:justify-between max-xs:px-4 w-full">
       {/* desktop decive navbar */}
       <Link to="/">
         <h1 className="text-xl text-white underline  p-1  max-xs:text-sm ">

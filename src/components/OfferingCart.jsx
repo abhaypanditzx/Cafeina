@@ -13,7 +13,7 @@ const OfferingCart = () => {
       <h1 className=" sm:text-3xl max-xs:text-xl text-gray-800 capitalize ">
         latest offering
       </h1>
-      <div className="flex  w-full justify-start   m-auto max-xs:gap-x-0 gap-5  flex-wrap h-full py-2">
+      <div className="flex  w-full items-start justify-start   m-auto max-xs:gap-x-0 gap-5  flex-wrap h-full py-2">
                  {/* THREE MAIN CARTS */}
  {offeringCart.map((e , index)=>{
   return(

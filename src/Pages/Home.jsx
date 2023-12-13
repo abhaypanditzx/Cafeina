@@ -13,12 +13,12 @@ const Home = () => {
         >
           <img src={coffee} className="lg:h-[500px] sm:h-[400px]" />
         </div>
-        <div className="xs:w-[40%] max-xs:w-[100%] flex h-full max-xs:justify-center items-start p-3 flex-col ">
+        <div className="xs:w-[40%] max-xs:w-[100%] flex h-full max-xs:p-1 max-xs:justify-center items-start p-3 flex-col ">
          <div className="leading-[105px] ">
-         <h1 className="lg:text-[100px] text-shadow tracking-tight  max-xs:text-[55px] font-bold text-white sm:text-[60px]">
+         <h1 className="lg:text-[100px] text-shadow tracking-tight  max-xs:text-[75px] font-bold text-white sm:text-[60px]">
             COFFEE
           </h1>
-          <h3 className="lg:text-[40px] text-shadow font-bold max-xs:leading-[32px] sm:leading-[56px] max-xs:text-[25px] text-white sm:text-[20px]">
+          <h3 className="lg:text-[40px]  max-[375px]:text-[30px] text-shadow font-bold max-xs:leading-[40px] sm:leading-[56px] max-xs:text-[35px] text-white sm:text-[20px]">
             NOW REFRESH YOUR MOOD ANYWHERE ANYTIME
           </h3>
          </div>
@@ -28,7 +28,7 @@ const Home = () => {
             taste and finest ingredients, every time. Check out our full range
             of drinks, snacks and meals and discover
           </p>
-          <button className="bg-white font-medium hover:scale-95 max-xs:px-3 max-xs:py-1.5 max-xs:text-sm duration-200 px-6 py-2 rounded-xl mt-6">
+          <button className="bg-white max-[375px]: font-medium hover:scale-95 max-xs:px-4 max-xs:py-1.5 max-xs:text-sm duration-200 px-6 py-2 rounded-xl mt-6">
             Explore
           </button>
         </div>
@@ -45,7 +45,7 @@ const Home = () => {
               return (
                 <div key={e.class} className="flex items-center flex-col ">
                   <div
-                    className={` ${e.class}   text-white bg-no-repeat overflow-hidden hover:scale-95 bg-cover cursor-pointer max-sm:w-[100px] max-sm:h-[100px] max-xs:w-[60px]  max-xs:h-[60px] border-[2px] hover:border-green-500  sm:w-[110px] sm:h-[110px] max-xs:text-xs text-xl text-shadow font-bold rounded-full `}
+                    className={` ${e.class}  max-[375px]:h-[65px]  max-[375px]:w-[65px]  text-white bg-no-repeat overflow-hidden hover:scale-95 bg-cover cursor-pointer max-sm:w-[100px] max-sm:h-[100px] max-xs:w-[80px]  max-xs:h-[80px] border-[2px] hover:border-green-500  sm:w-[110px] sm:h-[110px] max-xs:text-xs text-xl text-shadow font-bold rounded-full `}
                   ></div>
                   <h3 className="max-xs:text-[10px] w-max p-2">{e.title}</h3>
                 </div>
