@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MdNavigateNext } from "react-icons/md";
 import { offeringCart } from "../constant";
-import jughead from "../assets/Latest-offering/jughead.jpg";
-import betty from "../assets/Latest-offering/betty.webp";
 
 const OfferingCart = () => {
   const [display, setDisplay] = useState(false);
@@ -17,7 +15,7 @@ const OfferingCart = () => {
                  {/* THREE MAIN CARTS */}
  {offeringCart.map((e , index)=>{
   return(
-    <div key={index} className="max-xs:w-[150px] max-xs:m-auto sm:w-[300px] sm:h-[320px] mt-10 bg-white shadow-md shadow-gray-500/40 ]">
+    <div id={`offering-product-${index}`} key={index} className="max-xs:w-[150px] max-xs:m-auto sm:w-[300px] sm:h-[320px] mt-10 bg-white shadow-md shadow-gray-500/40 ]">
     <img src={e.productImg} className="w-full sm:h-[167px] max-xs:h-[100px] object-cover " />
     <div className="flex flex-col max-xs:p-2 sm:p-5">
       <h4 className="text-[14px] max-xs:text-[10px] text-gray-900 font-semibold">
