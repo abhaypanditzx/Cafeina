@@ -32,8 +32,8 @@ const Home = () => {
         <OfferingCart />
       </div>
       {/* Trusted Companies Section */}
-      <div className="w-[80%] border-[2px] mt-10 h-[200px] max-xs:h-[130px] rounded-xl mb-5  m-auto border-[#5B2E0E]">
-        <h1 className="text-3xl max-xs:text-[16px] h-fit m-auto w-fit py-1">Trusted Companies</h1>
+      <div className="w-[80%] border-[2px] mt-10 h-[200px] max-xs:h-[140px]  rounded-xl mb-5  m-auto border-[#5B2E0E]">
+        <h1 className="text-3xl max-xs:text-[20px] h-fit m-auto w-fit py-1 font-[500]">Trusted Companies</h1>
         <div className="flex justify-center h-fit w-full items-center max-xs:px-2 sm:gap-x-4 ">
           {trustedCompanyLogo.map((e, index) => {
             return (
