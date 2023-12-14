@@ -1,38 +1,12 @@
 import React, { useState } from "react";
-import coffee from "../assets/cold-coffee.png";
-import { Category } from "../constant";
+import { Category, trustedCompanyLogo } from "../constant";
 import OfferingCart from "../components/OfferingCart";
+
+import Top from "../components/Top";
 const Home = () => {
   return (
     <div className="overflow-h h-full bg-gray-100 w-screen overflow-hidden">
-      <div
-        className={` bg-no-repeat bg-cover xs:bg-pink-bg max-xs:bg-coffee-main-bg  sm:h-screen flex max-xs:h-[80vh] items-center  p-5 justify-around `}
-      >
-        <div
-          className={`coffee-bg  flex items-center max-xs:hidden p-5 sm:h-[330px]  justify-center lg:h-[450px]`}
-        >
-          <img src={coffee} className="lg:h-[500px] sm:h-[400px]" />
-        </div>
-        <div className="xs:w-[40%] max-xs:w-[100%] flex h-full max-xs:p-1 max-xs:justify-center items-start p-3 flex-col ">
-         <div className="leading-[105px] ">
-         <h1 className="lg:text-[100px] text-shadow tracking-tight  max-xs:text-[75px] font-bold text-white sm:text-[60px]">
-            COFFEE
-          </h1>
-          <h3 className="lg:text-[40px]  max-[375px]:text-[30px] text-shadow font-bold max-xs:leading-[40px] sm:leading-[56px] max-xs:text-[35px] text-white sm:text-[20px]">
-            NOW REFRESH YOUR MOOD ANYWHERE ANYTIME
-          </h3>
-         </div>
-         <p className="text-[15px] mt-0  text-shadow  text-white max-sm:hidden">
-            Our iconic Signature Blends are slow roasted for the perfect balance
-            of rich flavour and smooth taste. We guarantee you the freshest
-            taste and finest ingredients, every time. Check out our full range
-            of drinks, snacks and meals and discover
-          </p>
-          <button className="bg-white max-[375px]: font-medium hover:scale-95 max-xs:px-4 max-xs:py-1.5 max-xs:text-sm duration-200 px-6 py-2 rounded-xl mt-6">
-            Explore
-          </button>
-        </div>
-      </div>
+      <Top />
       <div className="bg-flex flex-col  items-center w-full ">
         {/* CATEGORY */}
         <div className="sm:px-10 max-sm:px-5 py-4 flex  flex-col">
@@ -56,6 +30,23 @@ const Home = () => {
 
         {/* MOBILE SIZE CARTS  */}
         <OfferingCart />
+      </div>
+      {/* Trusted Companies Section */}
+      <div className="w-[80%] border-[2px] mt-10 h-[200px] max-xs:h-[130px] rounded-xl mb-5  m-auto border-[#5B2E0E]">
+        <h1 className="text-3xl max-xs:text-[16px] h-fit m-auto w-fit py-1">Trusted Companies</h1>
+        <div className="flex justify-center h-fit w-full items-center max-xs:px-2 sm:gap-x-4 ">
+          {trustedCompanyLogo.map((e, index) => {
+            return (
+              <div key={index} className=" flex justify-center items-center sm:h-[130px]  max-xs:h-[80px] max-xs:w-[100px] xs:w-[140px]">
+                <img
+                  className=" object-cover"
+                  src={e.logo}
+                  alt="trusted-company-logo"
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
