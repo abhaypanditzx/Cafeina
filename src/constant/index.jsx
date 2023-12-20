@@ -5,6 +5,13 @@ import logo1 from "../assets/nestle.png";
 import logo2 from "../assets/cadbury.png";
 import logo3 from "../assets/amazon.png";
 import logo4 from "../assets/subway.png";
+import { IoStarOutline, IoStarHalfOutline, IoStarSharp } from "react-icons/io5";
+import man2 from "../assets/Customers/man2.jpeg";
+import man from "../assets/Customers/man.jpeg";
+import women from "../assets/Customers/woman.jpeg";
+import order from "../assets/orders/orderDone.png";
+
+import order2 from "../assets/orders/orderDone2.png";
 
 const NavLinks = [
   {
@@ -82,5 +89,50 @@ const trustedCompanyLogo = [
   { logo: logo3 },
   { logo: logo4 },
 ];
+const CustomerDetails = [
+  {
+    id: 0,
+    name: "natalia",
+    pfp: women,
 
-export { NavLinks, Category, FooterDropDown, offeringCart, trustedCompanyLogo };
+    comment: `"Absolutely love the coffee from Cafeína! It's rich, smooth, and delivered promptly. My new favorite spot for a caffeine fix!"`,
+  },
+  {
+    id: 1,
+
+    name: "jhon",
+    pfp: man,
+
+    comment: `"Absolutely love the coffee from Cafeína! It's rich, smooth, and delivered promptly. My new favorite spot for a caffeine fix!"`,
+  },
+  {
+    id: 3,
+
+    name: "martis",
+    pfp: man2,
+
+    comment: `"Absolutely love the coffee from Cafeína! It's rich, smooth, and delivered promptly. My new favorite spot for a caffeine fix!"`,
+  },
+];
+const stars = [
+  <IoStarSharp />,
+  <IoStarSharp />,
+  <IoStarSharp />,
+  <IoStarHalfOutline />,
+  <IoStarOutline />,
+];
+const completedOrders = [
+  { oName: "Latte", oImg: order },
+  { oName: "Cappuccino", oImg: order2 },
+  { oName: "Cappuccino", oImg: order2 },
+];
+export {
+  NavLinks,
+  Category,
+  FooterDropDown,
+  offeringCart,
+  trustedCompanyLogo,
+  CustomerDetails,
+  stars,
+  completedOrders,
+};

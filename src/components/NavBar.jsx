@@ -47,7 +47,7 @@ const NavBar = () => {
         type="checkbox"
       />
       <label
-        className="icon-menu z-50 max-xs:flex sm:hidden"
+        className="icon-menu z-50 max-xs:flex xs:hidden"
         htmlFor="check-icon"
       >
         <div
@@ -68,14 +68,25 @@ const NavBar = () => {
       >
         <div className="h-[55px] border-b-[1px] border-gray-300"></div>
         <ul className="flex flex-col border-b-[2px] w-[80%] m-auto border-gray-300 p-2 ">
-          <li style={{fontWeight :'400'}} className=" font-sans  py-3 px-3">Menu</li>
-          <li style={{fontWeight :'400'}} className=" font-sans  py-3 px-3">Rewards</li>
-          <li style={{fontWeight :'400'}} className=" font-sans  py-3 px-3">Gift Cards</li>
+          <Link to="menu">
+            <li onClick={()=>{setIsToggle(!isToggle)}} style={{ fontWeight: "400" }} className=" font-sans  py-3 px-3">
+              Menu
+            </li>
+          </Link>
+          <li style={{ fontWeight: "400" }} className=" font-sans  py-3 px-3">
+            Rewards
+          </li>
+          <li style={{ fontWeight: "400" }} className=" font-sans  py-3 px-3">
+            Gift Cards
+          </li>
         </ul>
         <div className="flex gap-x-4 my-5 w-[80%] m-auto px-4">
-          <button className="w-[80px] rounded-2xl max-xs:text-xs font-semibold bg-white  h-[30px] border-black border-[2px]">Sign in </button>
-          <button className="w-[80px] rounded-2xl max-xs:text-xs font-semibold bg-black text-white h-[30px] border-black border-[2px]">Join now </button>
-
+          <button className="w-[80px] rounded-2xl max-xs:text-xs font-semibold bg-white  h-[30px] border-black border-[2px]">
+            Sign in{" "}
+          </button>
+          <button className="w-[80px] rounded-2xl max-xs:text-xs font-semibold bg-black text-white h-[30px] border-black border-[2px]">
+            Join now{" "}
+          </button>
         </div>
       </div>
     </nav>

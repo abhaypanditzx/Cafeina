@@ -20,8 +20,8 @@ const Footer = () => {
   return (
     <footer className="bg-[#5B2E0E] w-full flex flex-col px-5 py-10 h-full">
       <div>
-        <h1 className="text-white text-3xl p-2 max-xs:text-2xl max-xs:p-1  ">
-          Coffee
+        <h1 className="text-white sm:text-[36px] p-2 font-cursive max-xs:text-2xl max-xs:p-1  ">
+        Cafeína
         </h1>
         <span className="text-gray-300 max-xs:text-[10px] sm:text-sm px-2  ">
           powered by exc.company 2023
@@ -58,11 +58,11 @@ const Footer = () => {
               onClick={() => HandleDropDown(e.id, e.DropDownId)}
               className="border-b-[1px] text-white flex  items-center justify-between px-5 border-white w-full h-[50px]"
             >
-              <h4>{e.mainTitle}</h4>
+              <h4 className="font-poppins">{e.mainTitle}</h4>
               <IoChevronDownSharp id={e.id} className={`cursor-pointer`} />
             </div>
 
-            <div id={e.DropDownId} className="bg-gray-900 hidden w-full h-fit">
+            <div id={e.DropDownId} className="bg-gray-900 hidden font-sans w-full h-fit">
               <ul>
                 {e.dropDownLinks.map((linkObj) => (
                   <li
