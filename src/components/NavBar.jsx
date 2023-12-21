@@ -73,9 +73,11 @@ const NavBar = () => {
               Menu
             </li>
           </Link>
-          <li style={{ fontWeight: "400" }} className=" font-sans  py-3 px-3">
-            Rewards
+         <Link to="orders"> 
+         <li style={{ fontWeight: "400" }} className=" font-sans  py-3 px-3">
+            My Orders
           </li>
+          </Link>
           <li style={{ fontWeight: "400" }} className=" font-sans  py-3 px-3">
             Gift Cards
           </li>

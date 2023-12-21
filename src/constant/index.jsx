@@ -10,7 +10,8 @@ import man2 from "../assets/Customers/man2.jpeg";
 import man from "../assets/Customers/man.jpeg";
 import women from "../assets/Customers/woman.jpeg";
 import order from "../assets/orders/orderDone.png";
-
+import truck from "../assets/orders/orderTracking/truck.png";
+import done from "../assets/orders/orderTracking/tick.png";
 import order2 from "../assets/orders/orderDone2.png";
 
 const NavLinks = [
@@ -122,9 +123,15 @@ const stars = [
   <IoStarOutline />,
 ];
 const completedOrders = [
-  { oName: "Latte", oImg: order },
-  { oName: "Cappuccino", oImg: order2 },
-  { oName: "Cappuccino", oImg: order2 },
+  { oName: "Latte", oImg: order ,date: '29 sep 2023'},
+  { oName: "Cappuccino", oImg: order2 , date: '1 dec 2023'},
+  { oName: "Cappuccino", oImg: order2 , date: '15 oct 2023'},
+];
+const orderProcess = [
+  { Picon: done  , Process: "Order Reviced" },
+  { Picon: done  , Process: "Order Confirmed" },
+  { Picon: done  , Process: "Order Packed" },
+  { Picon: truck , Process: "On The Way" },
 ];
 export {
   NavLinks,
@@ -135,4 +142,5 @@ export {
   CustomerDetails,
   stars,
   completedOrders,
+  orderProcess,
 };

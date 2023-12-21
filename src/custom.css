@@ -152,3 +152,17 @@
   font-family: 'Indie Flower', cursive;
 }
 .font-bebas{font-family: 'Bebas Neue', sans-serif;}
+
+
+
+#process-id-3{
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .8;
+    }
+  }

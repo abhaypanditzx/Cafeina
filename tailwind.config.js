@@ -9,7 +9,11 @@ module.exports = {
       'coffee-main-bg': "url('/src/assets/coffe-bg.png')",
       'pink-bg' :"url('/src/assets/pinkBg.png')"
       
-    }},
+    }
+    ,
+    colors:{
+      'brown' :'#261A0B'
+    }}
 
   },
   plugins: [],
