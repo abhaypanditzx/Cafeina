@@ -27,7 +27,7 @@ const Orders = () => {
   }
   return (
     <div className="h-full p-10 flex items-center   justify-around bg-gray-100 max-sm:gap-y-5 max-sm:flex-col">
-      <div className=" shadow-md  shadow-gray-500/20 bg-white sm:h-[90vh] max-xs:w-[300px] max-sm:w-[450px] sm:w-[300px] xl:w-[450px]">
+      <div className=" shadow-md  shadow-gray-500/20 bg-white sm:h-[90vh] max-xs:w-[400px] max-sm:w-[450px] sm:w-[400px] xl:w-[450px]">
         <div className="bg-[#5B2E0E] w-full h-[4rem] text-white text-xl p-4">
           All Orders
         </div>
@@ -72,7 +72,7 @@ const Orders = () => {
           );
         })}
       </div>
-      <div className=" shadow-md shadow-gray-500/20 justify-center flex p-10  bg-white sm:h-[90vh] max-xs:w-[300px] max-sm:w-[450px] max-sm:justify-start sm:w-[500px] xl:w-[800px]">
+      <div className=" shadow-md shadow-gray-500/20 justify-center flex p-10  bg-white sm:h-[90vh] max-xs:w-[400px] max-sm:w-[450px] max-sm:justify-start sm:w-[500px] xl:w-[800px]">
         <div className="flex-col w-fit flex items-center">
           {orderProcess.map((e, index) => {
             return (
