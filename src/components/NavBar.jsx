@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLinks } from "../constant";
 import { Link } from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
+import { RxCross1 } from "react-icons/rx";
 const NavBar = () => {
   const [activeLink, setActiveLink] = useState("/");
   const [isToggle, setIsToggle] = useState(false);
@@ -37,49 +38,53 @@ const NavBar = () => {
         Login/SignUp
       </button>
       {/* HAMBURGER_ICON */}
-      <input
+      <button
         onClick={() => {
           setIsToggle(!isToggle);
         }}
-        className="check-icon hidden"
-        id="check-icon"
-        name="check-icon"
-        type="checkbox"
-      />
-      <label
-        className="icon-menu z-50 max-xs:flex xs:hidden"
-        htmlFor="check-icon"
+        className="flex z-50"
       >
-        <div
-          className={`bar bar--1 ${isToggle ? "bg-black" : "bg-white"}`}
-        ></div>
-        <div
-          className={`bar bar--2 ${isToggle ? "bg-black" : "bg-white"}`}
-        ></div>
-        <div
-          className={`bar bar--3 ${isToggle ? "bg-black" : "bg-white"}`}
-        ></div>
-      </label>
+        <IoIosMenu
+          className={`text-white text-[40px] xs:hidden ${
+            isToggle ? "hidden" : "block"
+          }  `}
+        />
+        <RxCross1
+          className={`text-black text-[40px] ${isToggle ? "block" : "hidden"} `}
+        />
+      </button>
       {/* SIDEBAR_MOBILE_DEVICE */}
       <div
         className={`${
           isToggle ? "block" : "hidden"
-        } absolute right-0 top-0 h-screen z-40 bg-white w-[300px]`}
+        } absolute right-0 top-0 h-[110vh] z-40 bg-white w-[300px]`}
       >
         <div className="h-[55px] border-b-[1px] border-gray-300"></div>
         <ul className="flex flex-col border-b-[2px] w-[80%] m-auto border-gray-300 p-2 ">
           <Link to="menu">
-            <li onClick={()=>{setIsToggle(!isToggle)}} style={{ fontWeight: "400" }} className=" font-sans  py-3 px-3">
+            <li
+              onClick={() => {
+                setIsToggle(!isToggle);
+              }}
+              style={{ fontWeight: "400" }}
+              className=" font-sans  py-3 px-3"
+            >
               Menu
             </li>
           </Link>
-         <Link to="orders"> 
-         <li style={{ fontWeight: "400" }} className=" font-sans  py-3 px-3">
-            My Orders
-          </li>
+          <Link to="orders">
+            <li
+              onClick={() => {
+                setIsToggle(!isToggle);
+              }}
+              style={{ fontWeight: "400" }}
+              className=" font-sans  py-3 px-3"
+            >
+              My Orders
+            </li>
           </Link>
           <li style={{ fontWeight: "400" }} className=" font-sans  py-3 px-3">
-            Gift Cards
+            My Account
           </li>
         </ul>
         <div className="flex gap-x-4 my-5 w-[80%] m-auto px-4">

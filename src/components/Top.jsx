@@ -13,7 +13,7 @@ const Top = () => {
            <b className="text-black font-lato"> Cafeína</b> refresh yourself anytime anywhere
           </h1>
    
-        <p className="text-[15px] lg:mt-2.5 sm:mt-2  xl:mt-4 z-30 text-shadow xl:w-[600px] lg:w-[500px]   text-white max-sm:hidden">
+        <p className="text-[15px] lg:mt-2.5 sm:mt-2  xl:mt-4 z-30 text-shadow xl:w-[600px] lg:w-[500px] sm:hidden md:block  text-white max-sm:hidden">
           Our iconic Signature Blends are slow roasted for the perfect balance
           of rich flavour and smooth taste. We guarantee you the freshest taste
           and finest ingredients, every time. Check out our full range of

@@ -16,7 +16,7 @@ const Home = () => {
             Handcrafted Curations
           </h1>
 
-          <div className="flex relative flex-row justify- items-center p-4 w-full max-sm:gap-5 max-xs:gap-1  gap-24">
+          <div className="flex relative flex-row justify- items-center p-4 w-full overflow-auto max-sm:gap-5 max-xs:gap-1 sm:gap-10  lg:gap-24">
             {Category.map((e) => {
               return (
                 <div key={e.class} className="flex items-center flex-col ">
