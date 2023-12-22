@@ -6,13 +6,16 @@ import Menu from "./Pages/Menu";
 import Orders from "./Pages/Orders";
 import MyAccount from "./Pages/MyAccount";
 import Footer from "./components/Footer";
+import { useState } from "react";
 
 const App = () => {
+  const [activeLink, setActiveLink] = useState("/");
+
   return (
     <>
-      <NavBar />
+      <NavBar activeLink={activeLink} setActiveLink= {setActiveLink}/>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home activeLink={activeLink} setActiveLink= {setActiveLink}/>} />
         <Route path="orders" element={<Orders />} />
         <Route path="menu" element={<Menu />} />
         <Route path="myAccount" element={<MyAccount />} />

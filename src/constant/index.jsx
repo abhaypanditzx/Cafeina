@@ -20,15 +20,15 @@ const NavLinks = [
     title: "Home",
   },
   {
-    id: "orders",
+    id: "/orders",
     title: "Orders",
   },
   {
-    id: "menu",
+    id: "/menu",
     title: "Menu",
   },
   {
-    id: "myAccount",
+    id: "/myAccount",
     title: "My Account",
   },
 ];

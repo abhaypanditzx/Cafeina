@@ -3,10 +3,10 @@ import { NavLinks } from "../constant";
 import { Link } from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
 import { RxCross1 } from "react-icons/rx";
-const NavBar = () => {
-  const [activeLink, setActiveLink] = useState("/");
+const NavBar = (props) => {
   const [isToggle, setIsToggle] = useState(false);
-
+  const { activeLink, setActiveLink } = props;
+  
   return (
     <nav className="bg-[#130803] sticky top-0 min-h-[60px] max-xs:h-[60px]  h-[70px] items-center flex z-50 justify-around max-xs:justify-between max-xs:px-4 w-full">
       {/* desktop decive navbar */}
@@ -23,7 +23,7 @@ const NavBar = () => {
                 onClick={() => {
                   setActiveLink(e.id);
                 }}
-                className={`hover:text-white/80 max-sm:text-sm text-base ${
+                className={`hover:text-white/80 max-sm:text-sm sm:text-[16px] ${
                   activeLink === e.id ? "text-gray-300" : "text-white"
                 }`}
               >
