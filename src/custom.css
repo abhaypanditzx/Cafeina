@@ -166,3 +166,6 @@
       opacity: .8;
     }
   }
+  #stick-3{
+    display: none;
+  }

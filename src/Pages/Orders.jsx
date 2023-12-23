@@ -23,7 +23,7 @@ const Orders = () => {
     refreshIds();
   };
   return (
-    <div className="h-full p-10 flex items-center   justify-around bg-gray-100 max-sm:gap-y-5 sm:flex-row max-sm:flex-col">
+    <div className="h-full p-10 flex items-center   justify-around bg-gray-100 max-lg:gap-y-5 lg:flex-row max-lg:flex-col">
       <div className=" shadow-md  shadow-gray-500/20 bg-white sm:h-[90vh] max-xs:w-[370px] max-[320px]:w-[300px] max-sm:w-[450px] sm:w-[400px] xl:w-[400px]">
         <div className="bg-[#5B2E0E] w-full h-[4rem] text-white text-xl p-4">
           All Orders
@@ -71,14 +71,14 @@ const Orders = () => {
         })}
       </div>
 
-      <div className="sm:flex-col max-sm:flex-row overflow-hidden   max-xs:w-[370px] max-[320px]:w-[300px] flex items-center">
+      <div className="sm:flex-col max-sm:flex-row xs:w-[300px]  max-xs:w-[300px] max-[320px]:w-[200px] flex items-center">
         {orderProcess.map((e, index) => {
           return (
             <div
               key={`process-id-${index}`}
-              className="flex max-sm:flex-row sm:flex-col items-center"
+              className="flex max-sm:flex-row m-auto sm:flex-col w-fit justify-center items-center"
             >
-              <div className="bg-brown max-sm:h-[5px] max-[320px]:w-[20px] max-xs:w-[25px] max-sm:w-[20px] sm:h-[20px] sm:w-[5px]"></div>
+              {/* <div className="bg-brown max-sm:h-[5px] max-[320px]:w-[20px] max-xs:w-[25px] max-sm:w-[20px] sm:h-[20px] sm:w-[5px]"></div> */}
 
               <div className="flex w-fit items-center relative max-sm:py-4  h-fit">
                 <div
@@ -87,20 +87,23 @@ const Orders = () => {
                 >
                   <img src={e.Picon} className="max-[320px]:h-[15px]" alt="" />
                 </div>
-                <h5 className="text-lg max-sm:text-[0.7rem] max-[320px]:left-[-10px] max-[320px]:text-[0.5rem] max-xs:left-[-5px]  absolute   max-sm:left-[-10px]  max-sm:bottom-[-10px] sm:left-[60px] sm:text-sm w-max">
+                <h5 className="text-lg max-sm:text-[0.7rem] max-[320px]:left-[-10px] max-[320px]:text-[0.5rem] max-xs:left-[0px]  absolute   max-sm:left-[-10px]  max-sm:bottom-[-10px] sm:left-[60px] lg:left-[70px] sm:text-sm  z-40 w-max">
                   {e.Process}
                 </h5>
               </div>
-              <div className="bg-brown max-sm:h-[5px] max-[320px]:w-[20px] max-xs:w-[25px] max-sm:w-[20px] sm:h-[20px] sm:w-[5px]"></div>
+              <div
+                id={`stick-${index}`}
+                className="bg-brown max-sm:h-[5px] max-[320px]:w-[34px] max-xs:w-[50px] max-sm:w-[50px] sm:h-[20px] sm:w-[5px]"
+              ></div>
             </div>
           );
         })}
       </div>
 
-      <div className=" shadow-md max-sm:flex-col sm:flex-row shadow-gray-500/20 justify-between flex p-5 items-center bg-white sm:h-[90vh] max-xs:w-[370px] max-[320px]:w-[300px] max-sm:w-[450px] max-sm:justify-start sm:w-[500px] xl:w-[400px]">
+      <div className=" shadow-md max-sm:flex-col sm:flex-row shadow-gray-500/20 justify-between flex p-5 items-center bg-white sm:h-[90vh] max-xs:w-[370px] max-[320px]:w-[300px] max-sm:w-[450px] max-sm:justify-start sm:w-[500px]  md-[400px] xl:w-[400px]">
         <div className="flex  h-full flex-col w-[100%]  gap-y-2 p-5">
           <img
-            className="w-[300px] border-black/10 border-[5px]"
+            className="md:w-[200px] w-[300px] border-black/10 border-[5px]"
             src="https://i.ibb.co/pd4qBy4/flat-White.jpg"
             alt="flat-White"
             border="0"
