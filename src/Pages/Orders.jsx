@@ -101,26 +101,28 @@ const Orders = () => {
       </div>
 
       <div className=" shadow-md max-sm:flex-col sm:flex-row shadow-gray-500/20 justify-between flex p-5 items-center bg-white sm:h-[90vh] max-xs:w-[370px] max-[320px]:w-[300px] max-sm:w-[450px] max-sm:justify-start sm:w-[500px]  md-[400px] xl:w-[400px]">
-        <div className="flex  h-full flex-col w-[100%]  gap-y-2 p-5">
+        <div className="flex  h-full flex-col w-[100%]  gap-y-4 p-5">
           <img
-            className="md:w-[200px] w-[300px] border-black/10 border-[5px]"
+            className="md:w-[200px] max-lg:w-[300px] lg:w-[400px] border-black/10 border-[5px]"
             src="https://i.ibb.co/pd4qBy4/flat-White.jpg"
             alt="flat-White"
             border="0"
           />
-          <h1 className="text-xl text-black capitalize">flat white</h1>
+          <div className="flex  h-full flex-col w-[100%]  gap-y-2 ">
+            <h1 className="text-xl text-black capitalize">flat white</h1>
 
-          <h4 className="text-lg text-gray-800  capitalize">
-            {" "}
-            quantity : <span className="text-black">2x</span>
-          </h4>
-          <h1 className="text-xl text-gray-800 capitalize">
-            total bill : <span className="text-black">400rs</span>
-          </h1>
-          <button className="bg-red-700 max-xs:text-sm max-xs:px-2  hover:scale-95 p-1 rounded-xl text-white px-4 w-fit flex items-center">
-            {" "}
-            cancle order
-          </button>
+            <h4 className="text-lg text-gray-800  capitalize">
+              {" "}
+              quantity : <span className="text-black">2x</span>
+            </h4>
+            <h1 className="text-xl text-gray-800 capitalize">
+              total bill : <span className="text-black">400rs</span>
+            </h1>
+            <button className="bg-red-700 max-xs:text-sm max-xs:px-2 py-2 mt-2  hover:scale-95  rounded-xl text-white px-4 w-fit h-fit flex items-center">
+              {" "}
+              cancle order
+            </button>
+          </div>
         </div>
       </div>
     </div>
