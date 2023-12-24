@@ -83,9 +83,11 @@ const NavBar = (props) => {
               My Orders
             </li>
           </Link>
-          <li style={{ fontWeight: "400" }} className=" font-sans  py-3 px-3">
+        <Link to="/myaccount">
+        <li style={{ fontWeight: "400" }} className=" font-sans  py-3 px-3">
             My Account
           </li>
+          </Link>
         </ul>
         <div className="flex gap-x-4 my-5 w-[80%] m-auto px-4">
           <button className="w-[80px] rounded-2xl max-xs:text-xs font-semibold bg-white  h-[30px] border-black border-[2px]">
