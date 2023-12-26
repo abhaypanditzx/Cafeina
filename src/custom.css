@@ -172,3 +172,18 @@
   #sidelink-id-3{
     border-bottom: 1px solid #E5E7EB;
   }
+  #order-history-id-3{
+background-color:rgb(255, 236, 236);
+color: rgb(255, 24, 24);
+  }
+  #order-id-3{
+    background-color:rgb(221, 255, 219);
+    color: rgb(27, 177, 22);
+      }
+  #order-id-5{
+    background-color:rgb(237, 237, 237);
+    color:rgb(185, 185, 185);
+  }
+  .heading{
+    @apply px-0 py-2 text-[18px] text-gray-600 font-[500]
+  }

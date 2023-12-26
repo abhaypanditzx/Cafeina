@@ -13,6 +13,11 @@ import order from "../assets/orders/orderDone.png";
 import truck from "../assets/orders/orderTracking/truck.png";
 import done from "../assets/orders/orderTracking/tick.png";
 import order2 from "../assets/orders/orderDone2.png";
+import addressIcon from "../assets/icons/address.png";
+import history from "../assets/icons/history.png";
+import logout from "../assets/icons/logout.png";
+import Address from "../components/myAccountComponents/Address";
+import OrderHistory from "../components/myAccountComponents/OrderHistory";
 
 const NavLinks = [
   {
@@ -133,6 +138,11 @@ const orderProcess = [
   { Picon: done  , Process: "Order Packed" },
   { Picon: truck , Process: "On The Way" },
 ];
+const sideLinks = [
+  { id: 1, img: addressIcon, name: "my address", component: <Address /> },
+  { id: 2, img: history, name: "order history", component: <OrderHistory /> },
+  { id: 3, img: logout, name: "logout", component: false },
+];
 export {
   NavLinks,
   Category,
@@ -143,4 +153,5 @@ export {
   stars,
   completedOrders,
   orderProcess,
+  sideLinks,
 };

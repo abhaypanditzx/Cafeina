@@ -34,7 +34,7 @@ const NavBar = (props) => {
         })}
       </ul>
 
-      <button className="hover:brightness-110  max-xs:hidden max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-6 rounded-full bg-gradient-to-r border-2 border-white text-white">
+      <button className="hover:brightness-110 absolute right-5  max-xs:hidden max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-6 rounded-full bg-gradient-to-r border-2 border-white text-white">
         Login/SignUp
       </button>
       {/* HAMBURGER_ICON */}

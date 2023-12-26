@@ -5,8 +5,10 @@ const AddReview = () => {
   return (
     <div className="flex justify-center   items-center  w-full  m-auto">
       <div className="flex justify-center   items-center  m-auto  flex-col gap-2 p-4">
-        <div className="min-h-[50px] min-w-[50px] m-4 bg-black rounded-full"></div>
+<div className="max-h-[50px] max-w-[50px] overflow-hidden rounded-full">
+<img className="max-h-[50px] max-w-[50px] scale-150 object-fill rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIL1yCRUIDvX_iqoqxnb0wZQBobBlbTwf1cR5I95cfpA&s" />
 
+</div>
         <textarea
           type="text"
           placeholder="share your experience..."
