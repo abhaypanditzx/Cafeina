@@ -4,12 +4,12 @@ import { CustomerDetails, stars } from "../constant";
 
 function CustomerReview() {
   return (
-    <div className="flex gap-5 p-4 flex-wrap mx-9 justify-center mt-[100px] max-xs:gap-y-5">
+    <div className="flex  p-4 flex-wrap mx-9 justify-center sm:gap-x-[100px] mt-[100px] max-xs:gap-y-5">
       {CustomerDetails.map((e) => {
         return (
           <div
             key={e.id}
-            className="border-gray-400 rounded-lg border-[1px] min-h-[200px]  p-5 sm:h-[300px] sm:w-[250px]"
+            className="border-gray-400 bg-white/50 rounded-lg border-[1px] min-h-[200px]  p-5 sm:h-[300px] sm:w-[250px]"
           >
             <img
               src={e.pfp}
