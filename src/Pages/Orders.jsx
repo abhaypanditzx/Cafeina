@@ -118,9 +118,9 @@ const Orders = () => {
             <h1 className="text-xl text-gray-800 capitalize">
               total bill : <span className="text-black">400rs</span>
             </h1>
-            <button className="bg-red-700 max-xs:text-sm max-xs:px-2 py-2 mt-2  hover:scale-95  rounded-xl text-white px-4 w-fit h-fit flex items-center">
+            <button className="bg-red-400 hover:bg-red-500 max-xs:text-sm max-xs:px-2 py-2 mt-2  hover:scale-95  rounded-xl text-white px-4 w-fit h-fit flex items-center">
               {" "}
-              cancle order
+              cancel order
             </button>
           </div>
         </div>

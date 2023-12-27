@@ -1,82 +1,162 @@
 import React, { useState } from "react";
-import { FaInstagram, FaFacebookF } from "react-icons/fa";
-import { IoChevronDownSharp } from "react-icons/io5";
-import { FooterDropDown } from "../constant";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedin,
+  FaGithub,
+} from "react-icons/fa";
+import { IoHome } from "react-icons/io5";
+import { MdEmail } from "react-icons/md";
+import { IoCall } from "react-icons/io5";
+import { Link } from "react-router-dom";
+
 const Footer = () => {
-  const HandleDropDown = (id, DropDownId) => {
-    let chevron = document.getElementById(id);
-    let DropDown = document.getElementById(DropDownId);
-
-    if (chevron.style.transform === "rotate(0deg)") {
-      DropDown.style.display = "block";
-      chevron.style.transform = "rotate(180deg)";
-    } else {
-      DropDown.style.display = "none";
-
-      chevron.style.transform = "rotate(0deg)";
-    }
-  };
-
   return (
-    <footer className="bg-[#5B2E0E] w-full flex flex-col px-5 py-10 h-full">
-      <div>
-        <h1 className="text-white sm:text-[36px] p-2 font-cursive max-xs:text-2xl max-xs:p-1  ">
-        Cafeína
-        </h1>
-        <span className="text-gray-300 max-xs:text-[10px] sm:text-sm px-2  ">
-          powered by exc.company 2023
-        </span>
-      </div>
+    // <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
+    // <!-- Footer container -->
+    <footer className="bg-neutral-100 text-center text-neutral-600 dark:bg-brown dark:text-neutral-200 lg:text-left">
+      <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
+        <div className="mr-12 hidden lg:block">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        {/* <!-- Social network icons container --> */}
+        <div className="flex justify-center">
+          <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
+            <FaFacebookF className="h-4 w-4" />
+          </a>
+          <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
+            <FaTwitter className="h-4 w-4" />
+          </a>
 
-      <div className="flex flex-col text-gray-200 items-center max-xs:py-2  w-full">
-        <h5 className="sm:text-lg max-xs:text-sm">Follow us</h5>
-        <div className="flex space-x-2 p-1.5 justify-center ">
-          <FaFacebookF className="sm:text-2xl max-sm:text-base cursor-pointer" />
-          <FaInstagram className="sm:text-2xl max-sm:text-base cursor-pointer" />
+          <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
+            <FaInstagram className="h-4 w-4" />
+          </a>
+          <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
+            <FaLinkedin className="h-4 w-4" />
+          </a>
+          <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+            <FaGithub className="h-4 w-4" />
+          </a>
         </div>
       </div>
-      <div className="w-[350px] mt-10 m-auto h-full max-xs:w-[200px] justify-center gap-4 flex flex-wrap">
-        <button className="bg-orange-500 max-xs:text-xs max-xs:px-2  text-white rounded-md hover:underline px-5 py-1.5 ">
-          {" "}
-          About Us
-        </button>
-        <button className="bg-orange-500 max-xs:text-xs max-xs:px-2  text-white rounded-md hover:underline px-5 py-1.5 ">
-          {" "}
-          Locate Us
-        </button>
-        <button className="bg-orange-500 max-xs:text-xs max-xs:px-2  text-white rounded-md hover:underline px-5 py-1.5 ">
-          Privacy Policy
-        </button>
-        <button className="bg-orange-500 max-xs:text-xs max-xs:px-2  text-white rounded-md hover:underline px-5 py-1.5 ">
-          Terms & Conditions
-        </button>
-      </div>
-      {FooterDropDown.map((e, index) => {
-        return (
-          <div key={index} className="flex flex-col   w-[90%]  ">
-            <div
-              onClick={() => HandleDropDown(e.id, e.DropDownId)}
-              className="border-b-[1px] text-white flex  items-center justify-between px-5 border-white w-full h-[50px]"
-            >
-              <h4 className="font-poppins">{e.mainTitle}</h4>
-              <IoChevronDownSharp id={e.id} className={`cursor-pointer`} />
-            </div>
 
-            <div id={e.DropDownId} className="bg-gray-900 hidden font-sans w-full h-fit">
-              <ul>
-                {e.dropDownLinks.map((linkObj) => (
-                  <li
-                    className="border-b-[1px] max-xs:text-xs hover:text-white cursor-pointer text-white/80 px-4 py-1 border-[#a6a6a686]"
-                    key={linkObj.Link}
-                  >
-                    {linkObj.Link}
-                  </li>
-                ))}
-              </ul>
-            </div>
+      {/* <!-- Main container div: holds the entire content of the footer, including four sections (TW elements, Products, Useful links, and Contact), with responsive styling and appropriate padding/margins. --> */}
+      <div className="mx-6 py-10 text-center md:text-left">
+        <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {/* <!-- TW elements section --> */}
+          <div className="">
+            <h6 className="font-bungee text-xl">CAFEÍNA</h6>
+            <p>
+              Sip perfection at{" "}
+              <a href="/" className="text-yellow-400">
+                cafeina.
+              </a>{" "}
+              Explore premium blends, crafted for exceptional flavor. Elevate
+              your coffee experience. Cheers to great moments and great coffee!
+            </p>
           </div>
-        );
-      })}
+          {/* <!-- Products section --> */}
+          <div className="">
+            <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+              Products
+            </h6>
+            <p className="mb-4">
+              <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+                Coffee Blends
+              </a>
+            </p>
+            <p className="mb-4">
+              <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+                Brewing Gear
+              </a>
+            </p>
+            <p className="mb-4">
+              <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+                Top Picks
+              </a>
+            </p>
+            <p>
+              <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+                Special Offers
+              </a>
+            </p>
+          </div>
+          {/* <!-- Useful links section --> */}
+          <div className="">
+            <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+              Useful links
+            </h6>
+            <p className="mb-4">
+              <Link
+                to="/pricing"
+                href="#!"
+                className="text-neutral-600 dark:text-neutral-200"
+              >
+                Pricing
+              </Link>
+            </p>
+            <p className="mb-4">
+              <Link
+                to="/myAccount"
+                onClick={() => {
+                  window.scrollTo({ top: 0, Behaviour: "smooth" });
+                }}
+                className="text-neutral-600 dark:text-neutral-200"
+              >
+                Settings
+              </Link>
+            </p>
+            <p className="mb-4">
+              <Link
+                to="/orders"
+                onClick={() => {
+                  window.scrollTo({ top: 0, Behaviour: "smooth" });
+                }}
+                className="text-neutral-600 dark:text-neutral-200"
+              >
+                Orders
+              </Link>
+            </p>
+            <p>
+              <Link
+                to="/help"
+                className="text-neutral-600 dark:text-neutral-200"
+              >
+                Help
+              </Link>
+            </p>
+          </div>
+          {/* <!-- Contact section --> */}
+          <div>
+            <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+              Contact
+            </h6>
+            <p className="mb-4 flex items-center justify-center md:justify-start">
+              <IoHome className="mr-3 h-5 w-5" />
+              New York, NY 10012, US
+            </p>
+            <p className="mb-4 flex items-center justify-center md:justify-start">
+              <MdEmail className="mr-3 h-5 w-5" />
+              cafeina@gmail.com
+            </p>
+            <p className="mb-4 flex items-center justify-center md:justify-start">
+              <IoCall className="mr-3 h-5 w-5" />+ 01 234 567 88
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* <!--Copyright section--> */}
+      <div className="bg-neutral-200 p-6 text-center dark:bg-black/10">
+        <span>© 2023 Copyright:</span>
+        <a
+          className="font-semibold text-neutral-600 dark:text-neutral-400"
+          href="https://github.com/abhaypanditzx/Cafeina"
+        >
+          Cafeina
+        </a>
+      </div>
     </footer>
   );
 };

@@ -12,7 +12,7 @@ const Top = (props) => {
       <div className=" sm:w-[90%] lg:w-[60%]  max-xs:w-[100%] z-2 flex max-xs:h-[300px] xs:h-full max-xs:p-3 max-xs:justify-center items-start p-2 flex-col ">
         
           <h1 className="lg:text-[70px] max-xs:leading:-[1pc] xl:leading-[80px] uppercase sm:leading-[4.5rem] max-lg:text-[60px] lg:leading-[6pc]  font-bold  text-shadow tracking-[0.4px] max-xs:text-[50px]  text-white sm:text-[62px]">
-           <b className="text-black font-lato"> Cafeína</b> refresh yourself anytime anywhere
+           <b className="text-[#130803] font-lato"> Cafeína</b> refresh yourself anytime anywhere
           </h1>
    
         <p className="text-[15px] lg:mt-2.5 sm:mt-2  xl:mt-4 z-30 text-shadow xl:w-[600px] lg:w-[500px] sm:hidden md:block  text-white max-sm:hidden">
