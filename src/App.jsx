@@ -7,6 +7,7 @@ import Orders from "./Pages/Orders";
 import MyAccount from "./Pages/MyAccount";
 import Footer from "./components/Footer";
 import { useState } from "react";
+import Login from "./Login";
 
 const App = () => {
   const [activeLink, setActiveLink] = useState("/");
@@ -14,9 +15,11 @@ const App = () => {
   return (
     <>
       <NavBar activeLink={activeLink} setActiveLink= {setActiveLink}/>
+      
       <Routes>
         <Route path="/" element={<Home activeLink={activeLink} setActiveLink= {setActiveLink}/>} />
         <Route path="orders" element={<Orders />} />
+        <Route path="login" element={<Login/>} />
         <Route path="menu" element={<Menu />} />
         <Route path="myAccount" element={<MyAccount />} />
       </Routes>

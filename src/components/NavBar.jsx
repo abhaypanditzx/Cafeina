@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { NavLinks } from "../constant";
 import { Link } from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
 import { RxCross1 } from "react-icons/rx";
 import logo from "/icon.png";
+import UserContext from "./UserContext";
 const NavBar = (props) => {
   const [isToggle, setIsToggle] = useState(false);
   const { activeLink, setActiveLink } = props;
-
+  const { user } = useContext(UserContext);
   return (
     <nav className="bg-[#ffffff] sticky top-0 min-h-[60px] max-xs:h-[60px] shadow-md shadow-[#00000042] h-[70px] items-center flex z-50 justify-around max-xs:justify-between max-xs:px-4 w-full">
       {/* desktop decive navbar */}
@@ -36,10 +37,20 @@ const NavBar = (props) => {
         })}
       </ul>
       {/* LOGIN OR SIGNUP */}
-      <button className="hover:brightness-110 absolute max-lg:right-2 lg:right-5 max-xs:hidden max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white">
-        Login/SignUp
-      </button>
 
+      {user ? (
+        <div className="absolute flex max-lg:right-2 lg:right-5 max-xs:hidden max-xs:px-2  max-xs:py-1 text-xs font-bold py-1.5 px-4 tracking-[1px] text-black ">
+          <p >
+          {user}
+        </p>
+         <div className="bg-green-500 h-[8px] w-[8px] rounded-full mr-[-4px]  "></div>
+        </div>
+
+      ) : (
+        <button className="hover:brightness-110 absolute max-lg:right-2 lg:right-5 max-xs:hidden max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white">
+          <Link to="/login">Login/SignUp</Link>
+        </button>
+      )}
 
       {/* SIDEBAR_MOBILE_DEVICE */}
       <button
@@ -49,7 +60,7 @@ const NavBar = (props) => {
         className="flex z-50"
       >
         <IoIosMenu
-          className={`text-white text-[40px] xs:hidden ${
+          className={`text-black text-[40px] xs:hidden ${
             isToggle ? "hidden" : "block"
           }  `}
         />
@@ -87,18 +98,23 @@ const NavBar = (props) => {
             </li>
           </Link>
           <Link to="/myaccount">
-            <li style={{ fontWeight: "400" }} className=" font-sans  py-3 px-3">
+            <li
+              style={{ fontWeight: "400" }}
+              onClick={() => {
+                setIsToggle(!isToggle);
+              }}
+              className=" font-sans  py-3 px-3"
+            >
               My Account
             </li>
           </Link>
         </ul>
         <div className="flex gap-x-4 my-5 w-[80%] m-auto px-4">
-          <button className="w-[80px] rounded-2xl max-xs:text-xs font-semibold bg-white  h-[30px] border-black border-[2px]">
-            Sign in{" "}
-          </button>
-          <button className="w-[80px] rounded-2xl max-xs:text-xs font-semibold bg-black text-white h-[30px] border-black border-[2px]">
-            Join now{" "}
-          </button>
+          <Link to="/login">
+            <button className="w-[80px] rounded-2xl max-xs:text-xs font-semibold bg-white  h-[30px] border-black border-[2px]">
+              Sign in{" "}
+            </button>
+          </Link>
         </div>
       </div>
     </nav>

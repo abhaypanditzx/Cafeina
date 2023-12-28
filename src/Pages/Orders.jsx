@@ -1,9 +1,10 @@
-import React from "react";
+import React  , {useContext} from "react";
 
 import onTheWay from "../assets/orders/coffee.png";
 import { completedOrders } from "../constant";
 import tick from "../assets/orders/icons8-tick-96 3.png";
 import { orderProcess } from "../constant";
+import UserContext from "../components/UserContext";
 const Orders = () => {
   const refreshIds = () => {
     for (let i = 0; i <= 3; i++) {
@@ -18,12 +19,14 @@ const Orders = () => {
       }
     }
   };
-
+const {user}= useContext(UserContext)
   window.onload = function () {
     refreshIds();
   };
   return (
-    <div className="h-full p-10 flex items-center   justify-around bg-gray-100 max-lg:gap-y-5 lg:flex-row max-lg:flex-col">
+  
+    <>
+    { user ?   <div className="h-full p-10 flex items-center   justify-around bg-gray-100 max-lg:gap-y-5 lg:flex-row max-lg:flex-col">
       <div className=" shadow-md  shadow-gray-500/20 bg-white sm:h-[90vh] max-xs:w-[370px] max-[320px]:w-[300px] max-sm:w-[450px] sm:w-[400px] xl:w-[400px]">
         <div className="bg-[#5B2E0E] w-full h-[4rem] text-white text-xl p-4">
           All Orders
@@ -125,7 +128,31 @@ const Orders = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div>:
+       <div className="h-screen flex justify-center items-center  w-screen bg-gray-100">
+ 
+       <div class="flex flex-col items-center justify-center h-screen">
+        <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Login</h2>
+          <form class="flex flex-col">
+            <input type="email" class="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Email address"/>
+            <input type="password" class="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Password"/>
+            <div class="flex items-center justify-between flex-wrap">
+              <label for="remember-me" class="text-sm text-gray-900 cursor-pointer">
+                <input type="checkbox" id="remember-me" class="mr-2"/>
+                Remember me
+              </label>
+              <a href="#" class="text-sm text-blue-500 hover:underline mb-0.5">Forgot password?</a>
+              <p class="text-gray-900 mt-4"> Don't have an account? <a href="#" class="text-sm text-blue-500 -200 hover:underline mt-4">Signup</a></p>
+            </div>
+            <button type="submit" class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Login</button>
+          </form>
+        </div>
+      </div>
+      
+      </div>
+    }
+    </>
   );
 };
 
