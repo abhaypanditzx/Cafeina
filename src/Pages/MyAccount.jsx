@@ -1,34 +1,44 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { sideLinks } from "../constant";
 import Address from "../components/myAccountComponents/Address";
 import UserContext from "../components/UserContext";
+import { Link } from "react-router-dom";
 const MyAccount = () => {
-  const { user } = useContext(UserContext);
+  const {
+    userId,
+    email,
+    password,
+    userName,
+    setPassword,
+    setEmail,
+    profilePicture,
+    phone,
+  } = useContext(UserContext);
   const DefaultAddress = `Street:  A-3, 1st Floor, Raj Industrial Estate, Military Road, Marol, Andheri(e),  Maharashtra, India`;
-  const [email, setEmail] = useState("abhaypanditzx@gmail.com");
-  const [password, setPassword] = useState("testpassword123");
-  const [phone, setPhone] = useState("+91 xxxx-nnnnnn");
   const [address, setAddress] = useState(DefaultAddress);
+
   const [currentComponent, setCurrentComponent] = useState(<Address />);
-  const updateUserInfo = () => {
-    console.log("user info updated");
-  };
+
   return (
     <>
-      {user ? (
+      {userId ? (
         <div className="h-full max-xs:flex-col w-full flex items-center justify-between p-3 gap-2 bg-gray-100">
           <div className=" min-w-[200px] min-h-[600px] max-xs:w-[100%]  w-[400px] sm:h-[500px] border-[1px] bg-white">
             <div className="flex flex-col items-center gap-y-2  p-10">
               <div className="overflow-hidden w-[100px] ">
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIL1yCRUIDvX_iqoqxnb0wZQBobBlbTwf1cR5I95cfpA&s"
+                  src={
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIL1yCRUIDvX_iqoqxnb0wZQBobBlbTwf1cR5I95cfpA&s"
+                  }
                   className="scale-150 w-[100px]"
-                  alt=""
+                  alt="pfp"
                 />
               </div>
-              <h2 className="text-[20px] font-poppins font-[500]">{`${user}`}</h2>
-              <h2 className="text-[17px] font-poppins font-[400]">
-                +91 xxxx xxxx xx
+              <h1 className="text-[20px] font-poppins  font-[500] " id="myName">
+                {userName}
+              </h1>
+              <h2 className="text-[14px] text-gray-600 font-poppins font-[400]">
+                {email}
               </h2>
             </div>
             <ul className="capitalize max-xs:hidden h-fit flex flex-col">
@@ -48,7 +58,7 @@ const MyAccount = () => {
                 );
               })}
             </ul>
-            {/* for    mobile  */}
+            {/*htmlFor    mobile  */}
             <div className="hidden flex-col  h-full max-xs:flex gap-y-4 p-2">
               <div className="address">
                 <h1 className="heading">Address</h1>
@@ -94,10 +104,7 @@ const MyAccount = () => {
                 />
               </div>
             </div>
-            <button
-              onClick={updateUserInfo}
-              className="bg-red-600 hidden max-xs:block self-center m-5 w-fit text-white font-poppins px-4 py-1 rounded-lg"
-            >
+            <button className="bg-red-600 hidden max-xs:block self-center m-5 w-fit text-white font-poppins px-4 py-1 rounded-lg">
               save
             </button>
           </div>
@@ -106,54 +113,18 @@ const MyAccount = () => {
           </div>
         </div>
       ) : (
-        <div className="h-screen flex justify-center items-center  w-screen bg-gray-100">
-          <div class="flex flex-col items-center justify-center h-screen">
-            <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
-              <h2 class="text-2xl font-bold text-gray-900 mb-4">Login</h2>
-              <form class="flex flex-col">
-                <input
-                  type="email"
-                  class="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-                  placeholder="Email address"
-                />
-                <input
-                  type="password"
-                  class="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-                  placeholder="Password"
-                />
-                <div class="flex items-center justify-between flex-wrap">
-                  <label
-                    for="remember-me"
-                    class="text-sm text-gray-900 cursor-pointer"
-                  >
-                    <input type="checkbox" id="remember-me" class="mr-2" />
-                    Remember me
-                  </label>
-                  <a
-                    href="#"
-                    class="text-sm text-blue-500 hover:underline mb-0.5"
-                  >
-                    Forgot password?
-                  </a>
-                  <p class="text-gray-900 mt-4">
-                    {" "}
-                    Don't have an account?{" "}
-                    <a
-                      href="#"
-                      class="text-sm text-blue-500 -200 hover:underline mt-4"
-                    >
-                      Signup
-                    </a>
-                  </p>
-                </div>
-                <button
-                  type="submit"
-                  class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150"
-                >
-                  Login
-                </button>
-              </form>
-            </div>
+        <div className="h-screen w-full justify-center items-center flex ">
+          <div className="flex  h-screen justify-center items-center bg-black/10  flex-col w-full gap-5">
+            <Link to="/login">
+              <button className="bg-blue-600 h-fit hover:bg-blue-700  text-white px-4 w-[200px] py-2 ">
+                login
+              </button>
+            </Link>
+            <Link to="/signup">
+              <button className="bg-blue-600 h-fit hover:bg-blue-700  text-white px-4 w-[200px] py-2 ">
+                signUp
+              </button>
+            </Link>
           </div>
         </div>
       )}

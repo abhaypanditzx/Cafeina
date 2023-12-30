@@ -48,7 +48,7 @@ const Address = () => {
               setCurrentAddress(e.target.value);
             }}
             rows="5"
-            className="bg-gray-100  w-full"
+            className="bg-gray-100 p-4 outline-[0.1px] w-full"
           ></textarea>
           <button onClick={()=>{setCurrentAddress(currentAddress) , setIsPopup(!isPopup)}} className="bg-[#5B2E0E] px-4 py-1.5  w-fit text-white rounded-md">
             save

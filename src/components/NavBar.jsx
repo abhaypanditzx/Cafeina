@@ -8,7 +8,7 @@ import UserContext from "./UserContext";
 const NavBar = (props) => {
   const [isToggle, setIsToggle] = useState(false);
   const { activeLink, setActiveLink } = props;
-  const { user } = useContext(UserContext);
+  const { userId, displayName ,Logout} = useContext(UserContext);
   return (
     <nav className="bg-[#ffffff] sticky top-0 min-h-[60px] max-xs:h-[60px] shadow-md shadow-[#00000042] h-[70px] items-center flex z-50 justify-around max-xs:justify-between max-xs:px-4 w-full">
       {/* desktop decive navbar */}
@@ -38,18 +38,19 @@ const NavBar = (props) => {
       </ul>
       {/* LOGIN OR SIGNUP */}
 
-      {user ? (
-        <div className="absolute flex max-lg:right-2 lg:right-5 max-xs:hidden max-xs:px-2  max-xs:py-1 text-xs font-bold py-1.5 px-4 tracking-[1px] text-black ">
-          <p >
-          {user}
-        </p>
-         <div className="bg-green-500 h-[8px] w-[8px] rounded-full mr-[-4px]  "></div>
-        </div>
-
-      ) : (
-        <button className="hover:brightness-110 absolute max-lg:right-2 lg:right-5 max-xs:hidden max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white">
-          <Link to="/login">Login/SignUp</Link>
+      {userId ? (
+        <button onClick={Logout} className="absolute flex max-lg:right-2 lg:right-5 hover:brightness-110  max-xs:hidden max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white">
+       logout
         </button>
+      ) : (
+        <>
+          <button className="hover:brightness-110 absolute max-lg:right-2 lg:right-[7rem] max-xs:hidden max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white">
+            <Link to="/login">Login</Link>
+          </button>
+          <button className="hover:brightness-110 absolute max-lg:right-2 lg:right-5 max-xs:hidden max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white">
+            <Link to="/signup">signUp</Link>
+          </button>
+        </>
       )}
 
       {/* SIDEBAR_MOBILE_DEVICE */}

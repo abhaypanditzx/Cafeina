@@ -1,12 +1,105 @@
-// UserContext.js
-import React, { createContext, useState } from 'react';
+
+import React, { createContext, useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+  signOut,
+} from "firebase/auth";
+import { auth } from "../fire.config";
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState("abhay");
+  const [userId, setUserId] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("+91 XXXX XXXX XX");
+
+  const [userName, setUserName] = useState("");
+  const [profilePicture, setProfilePicture] = useState("");
+  const navigate = useNavigate();
+
+  const signUp = async (e) => {
+    e.preventDefault();
+    try {
+      await createUserWithEmailAndPassword(auth, email, password).then(
+        async (userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          navigate("/myAccount");
+          setUserId(user.uid);
+
+          // Set the display name using the state value
+          await updateProfile(auth.currentUser, {
+            displayName: userName,
+         
+          });
+
+          setUserName(auth.currentUser.displayName);
+          
+
+        }
+      );
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
+    }
+  };
+
+  const Logout = async () => {
+    try {
+      await signOut(auth);
+      setUserId("");
+      setUserName("");
+      navigate("/login"); // Redirect to the login page or any other page after logout
+    } catch (error) {
+      console.log("Error during logout:", error);
+    }
+  };
+  const Login = async (e) => {
+    e.preventDefault();
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password).then(
+        (userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          setUserId(user.uid);
+          setUserName(auth.currentUser.displayName);
+          // setPhone(auth.currentUser.phoneNumber);
+
+          navigate("/myAccount");
+          // Retrieve and set the display name
+          // setDisplayName(user.displayName);
+          // ...
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+
   return (
-    <UserContext.Provider value={{ user}}>
+    <UserContext.Provider
+      value={{
+        userId,
+        email,
+        password,
+        setEmail,
+        setPassword,
+        signUp,
+        Login,
+        setUserName,
+        userName,
+        Logout,
+        setPhone
+      
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

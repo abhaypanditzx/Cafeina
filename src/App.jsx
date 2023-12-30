@@ -8,6 +8,7 @@ import MyAccount from "./Pages/MyAccount";
 import Footer from "./components/Footer";
 import { useState } from "react";
 import Login from "./Login";
+import Signup from "./Pages/Signup";
 
 const App = () => {
   const [activeLink, setActiveLink] = useState("/");
@@ -20,6 +21,8 @@ const App = () => {
         <Route path="/" element={<Home activeLink={activeLink} setActiveLink= {setActiveLink}/>} />
         <Route path="orders" element={<Orders />} />
         <Route path="login" element={<Login/>} />
+        <Route path="signup" element={<Signup/>} />
+
         <Route path="menu" element={<Menu />} />
         <Route path="myAccount" element={<MyAccount />} />
       </Routes>
