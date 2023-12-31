@@ -10,22 +10,20 @@ const Home = () => {
   const userContext = createContext();
 
   return (
-   
-      <div className="overflow-h h-full bg-gray-100 w-screen overflow-">
-        <Top />
-        <div className="bg-flex flex-col  items-center w-full ">
-          {/* CATEGORY */}
+    <div className="overflow-h h-full bg-gray-100 w-screen overflow-">
+      <Top />
+      <section className="bg-flex flex-col  items-center w-full ">
+        {/* CATEGORY */}
 
-          <Handcrafted_Curations />
-          {/* MOBILE SIZE CARTS  */}
-          <OfferingCart />
-        </div>
-        {/* Trusted Companies Section */}
-        <Trusted_company />
-        <CustomerReview />
-        <AddReview />
-      </div>
-    
+        <Handcrafted_Curations />
+        {/* MOBILE SIZE CARTS  */}
+        <OfferingCart />
+      </section>
+      {/* Trusted Companies Section */}
+      <Trusted_company />
+      <CustomerReview />
+      <AddReview />
+    </div>
   );
 };
 

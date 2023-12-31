@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
+import UserContext from "../components/UserContext";
 const Menu = () => {
   const [isDataLoaded, setIsDataLoaded] = useState(false);
-  const [coffeeData, setCoffeeData] = useState([]);
+  const { coffeeData, setCoffeeData } = useContext(UserContext);
   const url = "https://fake-coffee-api.vercel.app/api";
   const getData = async () => {
     try {

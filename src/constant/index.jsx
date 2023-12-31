@@ -20,10 +20,7 @@ import Address from "../components/myAccountComponents/Address";
 import OrderHistory from "../components/myAccountComponents/OrderHistory";
 
 const NavLinks = [
-  {
-    id: "/",
-    title: "Home",
-  },
+ 
   {
     id: "/orders",
     title: "Orders",

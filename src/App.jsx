@@ -7,7 +7,7 @@ import Orders from "./Pages/Orders";
 import MyAccount from "./Pages/MyAccount";
 import Footer from "./components/Footer";
 import { useState } from "react";
-import Login from "./Login";
+import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 
 const App = () => {

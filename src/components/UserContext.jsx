@@ -1,4 +1,3 @@
-
 import React, { createContext, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import {
@@ -12,10 +11,15 @@ import { auth } from "../fire.config";
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
+  const [coffeeData, setCoffeeData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
   const [userId, setUserId] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("+91 XXXX XXXX XX");
+  const [viewPassword, setViewPassword] = useState("password");
 
   const [userName, setUserName] = useState("");
   const [profilePicture, setProfilePicture] = useState("");
@@ -34,12 +38,9 @@ export const UserProvider = ({ children }) => {
           // Set the display name using the state value
           await updateProfile(auth.currentUser, {
             displayName: userName,
-         
           });
 
           setUserName(auth.currentUser.displayName);
-          
-
         }
       );
     } catch (error) {
@@ -81,7 +82,6 @@ export const UserProvider = ({ children }) => {
       console.log(error);
     }
   };
-  
 
   return (
     <UserContext.Provider
@@ -96,8 +96,15 @@ export const UserProvider = ({ children }) => {
         setUserName,
         userName,
         Logout,
-        setPhone
-      
+        setPhone,
+        viewPassword,
+        setViewPassword,
+        searchQuery,
+        setSearchQuery,
+        searchResults,
+        setSearchResults,
+        coffeeData,
+        setCoffeeData
       }}
     >
       {children}
