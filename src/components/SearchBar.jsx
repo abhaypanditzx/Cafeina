@@ -14,7 +14,7 @@ const SearchBar = () => {
     searchResults,
     setSearchResults,
   } = useContext(UserContext);
-  const [hidden, setHidden] = useState("absolute");
+  const [hidden, setHidden] = useState("hidden");
   const handleSearch = () => {
     // Perform a search based on the searchQuery (e.g., fetch data from an API)
     // Update the searchResults state with the filtered data
