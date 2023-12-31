@@ -2,24 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import UserContext from "../components/UserContext";
 const Menu = () => {
-  const [isDataLoaded, setIsDataLoaded] = useState(false);
-  const { coffeeData, setCoffeeData } = useContext(UserContext);
-  const url = "https://fake-coffee-api.vercel.app/api";
-  const getData = async () => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      setCoffeeData(data);
-      setIsDataLoaded(true);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setIsDataLoaded(false);
-    }
-  };
-
-  useEffect(() => {
-    getData(); // Call the function when the component mounts
-  }, []); // Passing an empty dependency array ensures it runs only once when the component mounts
+  const { coffeeData, setCoffeeData ,isDataLoaded, setIsDataLoaded} = useContext(UserContext);
 
   return (
     <div className="p-5 bg-gray-100">

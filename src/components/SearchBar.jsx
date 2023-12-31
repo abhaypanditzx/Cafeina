@@ -45,7 +45,6 @@ const SearchBar = () => {
         >
           <span className="max-xs:hidden">Search</span>
           <IoMdSearch className="text-xl  mx-2  text-white xs:hidden cursor-pointer" />
-
         </button>
       </div>
       <ul

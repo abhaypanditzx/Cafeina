@@ -23,6 +23,8 @@ export const UserProvider = ({ children }) => {
 
   const [userName, setUserName] = useState("");
   const [profilePicture, setProfilePicture] = useState("");
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
+
   const navigate = useNavigate();
 
   const signUp = async (e) => {
@@ -83,6 +85,23 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const url = "https://fake-coffee-api.vercel.app/api";
+  const getData = async () => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      setCoffeeData(data);
+      setIsDataLoaded(true);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setIsDataLoaded(false);
+    }
+  };
+
+  useEffect(() => {
+    getData(); // Call the function when the component mounts
+  }, []); // Passing an empty dependency array ensures it runs only once when the component mounts
+
   return (
     <UserContext.Provider
       value={{
@@ -104,7 +123,8 @@ export const UserProvider = ({ children }) => {
         searchResults,
         setSearchResults,
         coffeeData,
-        setCoffeeData
+        setCoffeeData,
+        isDataLoaded, setIsDataLoaded
       }}
     >
       {children}
