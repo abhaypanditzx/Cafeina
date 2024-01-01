@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import UserContext from "../components/UserContext";
 const Menu = () => {
-  const { coffeeData, setCoffeeData ,isDataLoaded, setIsDataLoaded} = useContext(UserContext);
+  const { coffeeData, setCoffeeData ,isDataLoaded} = useContext(UserContext);
 
   return (
     <div className="p-5 bg-gray-100">

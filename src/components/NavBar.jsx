@@ -9,46 +9,61 @@ import SearchBar from "./SearchBar";
 const NavBar = (props) => {
   const [isToggle, setIsToggle] = useState(false);
   const { activeLink, setActiveLink } = props;
-  const { userId, displayName ,Logout,coffeeData,searchQuery,setSearchQuery, } = useContext(UserContext);
-
+  const {
+    userId,
+    displayName,
+    Logout,
+    coffeeData,
+    searchQuery,
+    setSearchQuery,
+  } = useContext(UserContext);
 
   return (
- 
-      <nav className="bg-[#ffffff] sticky top-0 min-h-[60px] max-xs:h-[60px] justify-around shadow-md  h-[70px] items-center flex z-50  max-xs:justify-between max-xs:px-4 w-full">
+    <nav className="bg-[#ffffff] sticky top-0 min-h-[60px] max-xs:h-[60px] justify-around shadow-md  h-[70px] items-center flex z-50  max-xs:justify-between max-xs:px-4 w-full">
       {/* desktop decive navbar */}
 
       {/* LOGO */}
       <Link to="/">
-        <img src={logo} className="w-[50px] h-[50px] max-xs:h-[30px] max-xs:w-[30px]" alt="logo" />
+        <img
+          src={logo}
+          className="w-[50px] h-[50px] max-xs:h-[30px] max-xs:w-[30px]"
+          alt="logo"
+        />
       </Link>
-     
-      <SearchBar/>
+
+      <SearchBar />
 
       {/* LINKS */}
-      <ul className="text-white flex  max-sm:gap-8 sm:gap-14 lg:gap-24 max-sm:hidden ">
+      <ul className={` ${userId ? '[&>*:nth-child(4)]:block' : '[&>*:nth-child(4)]:hidden' }  text-white flex  max-sm:gap-8 sm:gap-12 lg:gap-24 max-sm:hidden `}>
         {NavLinks.map((e) => {
           return (
-            <Link to={e.id} key={e.id}>
               <li
                 onClick={() => {
                   setActiveLink(e.id);
-                  window.scrollTo(0,0)
+                  window.scrollTo(0, 0);
                 }}
+                key={e.id}
                 className={`hover:text-gray-600 max-sm:text-sm sm:text-[18px] ${
                   activeLink === e.id ? "text-gray-600" : "text-black"
                 }`}
               >
+                            <Link to={e.id} >
+
                 {e.title}
+                </Link>
+
               </li>
-            </Link>
           );
         })}
       </ul>
       {/* LOGIN OR SIGNUP */}
 
       {userId ? (
-        <button onClick={Logout} className="absolute flex max-lg:right-2 lg:right-5 hover:brightness-110  max-xs:hidden max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white">
-       logout
+        <button
+          onClick={Logout}
+          className="absolute flex max-lg:right-2 lg:right-5 hover:brightness-110  max-xs:hidden max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white"
+        >
+          logout
         </button>
       ) : (
         <div className="flex max-sm:hidden gap-x-2">
@@ -84,7 +99,7 @@ const NavBar = (props) => {
       >
         <div className="h-[55px] border-b-[1px] border-gray-300"></div>
         <ul className="flex flex-col border-b-[2px] w-[80%] m-auto border-gray-300 p-2 ">
-        <Link to="/">
+          <Link to="/">
             <li
               onClick={() => {
                 setIsToggle(!isToggle);
@@ -130,28 +145,36 @@ const NavBar = (props) => {
           </Link>
         </ul>
         <div className="flex gap-x-4 my-5 w-[80%] m-auto px-4">
-        {userId ? (
-        <button onClick={Logout} className=" flex hover:brightness-110   max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white">
-       logout
-        </button>
-      ) : (
-        <>
-          <button  onClick={() => {
-          setIsToggle(!isToggle);
-        }} className="hover:brightness-110   max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white">
-            <Link to="/login">Login</Link>
-          </button>
-          <button  onClick={() => {
-          setIsToggle(!isToggle);
-        }} className="hover:brightness-110  max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white">
-            <Link to="/signup">signUp</Link>
-          </button>
-        </>
-      )}
+          {userId ? (
+            <button
+              onClick={Logout}
+              className=" flex hover:brightness-110   max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white"
+            >
+              logout
+            </button>
+          ) : (
+            <>
+              <button
+                onClick={() => {
+                  setIsToggle(!isToggle);
+                }}
+                className="hover:brightness-110   max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white"
+              >
+                <Link to="/login">Login</Link>
+              </button>
+              <button
+                onClick={() => {
+                  setIsToggle(!isToggle);
+                }}
+                className="hover:brightness-110  max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white"
+              >
+                <Link to="/signup">signUp</Link>
+              </button>
+            </>
+          )}
         </div>
       </div>
     </nav>
-
-  )
+  );
 };
 export default NavBar;
