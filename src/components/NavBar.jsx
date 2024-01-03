@@ -34,25 +34,25 @@ const NavBar = (props) => {
       <SearchBar />
 
       {/* LINKS */}
-      <ul className={` ${userId ? '[&>*:nth-child(4)]:block' : '[&>*:nth-child(4)]:hidden' }  text-white flex  max-sm:gap-8 sm:gap-12 lg:gap-24 max-sm:hidden `}>
+      <ul
+        className={` ${
+          userId ? "[&>*:nth-child(4)]:block" : "[&>*:nth-child(4)]:hidden"
+        }  text-white flex  max-sm:gap-8 sm:gap-12 lg:gap-24 max-sm:hidden `}
+      >
         {NavLinks.map((e) => {
           return (
-              <li
-                onClick={() => {
-                  setActiveLink(e.id);
-                  window.scrollTo(0, 0);
-                }}
-                key={e.id}
-                className={`hover:text-gray-600 max-sm:text-sm sm:text-[18px] ${
-                  activeLink === e.id ? "text-gray-600" : "text-black"
-                }`}
-              >
-                            <Link to={e.id} >
-
-                {e.title}
-                </Link>
-
-              </li>
+            <li
+              onClick={() => {
+                setActiveLink(e.id);
+                window.scrollTo(0, 0);
+              }}
+              key={e.id}
+              className={`hover:text-gray-600 max-sm:text-sm sm:text-[18px] ${
+                activeLink === e.id ? "text-gray-600" : "text-black"
+              }`}
+            >
+              <Link to={e.id}>{e.title}</Link>
+            </li>
           );
         })}
       </ul>
@@ -92,86 +92,88 @@ const NavBar = (props) => {
           className={`text-black text-[40px] ${isToggle ? "block" : "hidden"} `}
         />
       </button>
-      <div
-        className={`${
-          isToggle ? "block" : "hidden"
-        } absolute right-0 top-0 h-[110vh] z-40 bg-white w-[300px]`}
-      >
-        <div className="h-[55px] border-b-[1px] border-gray-300"></div>
-        <ul className="flex flex-col border-b-[2px] w-[80%] m-auto border-gray-300 p-2 ">
-          <Link to="/">
-            <li
-              onClick={() => {
-                setIsToggle(!isToggle);
-              }}
-              style={{ fontWeight: "400" }}
-              className=" font-sans text-[18px]  py-3 px-3"
-            >
-              Home
-            </li>
-          </Link>
-          <Link to="menu">
-            <li
-              onClick={() => {
-                setIsToggle(!isToggle);
-              }}
-              style={{ fontWeight: "400" }}
-              className=" font-sans  py-3 px-3  text-[18px]"
-            >
-              Menu
-            </li>
-          </Link>
-          <Link to="orders">
-            <li
-              onClick={() => {
-                setIsToggle(!isToggle);
-              }}
-              style={{ fontWeight: "400" }}
-              className=" font-sans  py-3 px-3  text-[18px]"
-            >
-              My Orders
-            </li>
-          </Link>
-          <Link to="/myaccount">
-            <li
-              style={{ fontWeight: "400" }}
-              onClick={() => {
-                setIsToggle(!isToggle);
-              }}
-              className=" font-sans  py-3 px-3  text-[18px]"
-            >
-              My Account
-            </li>
-          </Link>
-        </ul>
-        <div className="flex gap-x-4 my-5 w-[80%] m-auto px-4">
-          {userId ? (
-            <button
-              onClick={Logout}
-              className=" flex hover:brightness-110   max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white"
-            >
-              logout
-            </button>
-          ) : (
-            <>
-              <button
+      <div className={`${
+            isToggle ? "flex" : "hidden"
+          } absolute right-0 top-0 h-[110vh] z-40 bg-gray-700/20 backdrop-blur-sm  w-screen justify-end`}>
+        <div 
+          className={` h-[110vh] z-40 bg-white w-[300px]`}
+        >
+          <div className="h-[55px] border-b-[1px] border-gray-300"></div>
+          <ul className="flex flex-col border-b-[2px] w-[80%] m-auto border-gray-300 p-2 ">
+            <Link to="/">
+              <li
                 onClick={() => {
                   setIsToggle(!isToggle);
                 }}
-                className="hover:brightness-110   max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white"
+                style={{ fontWeight: "400" }}
+                className=" font-sans text-[18px]  py-3 px-3"
               >
-                <Link to="/login">Login</Link>
-              </button>
-              <button
+                Home
+              </li>
+            </Link>
+            <Link to="menu">
+              <li
                 onClick={() => {
                   setIsToggle(!isToggle);
                 }}
-                className="hover:brightness-110  max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white"
+                style={{ fontWeight: "400" }}
+                className=" font-sans  py-3 px-3  text-[18px]"
               >
-                <Link to="/signup">signUp</Link>
+                Menu
+              </li>
+            </Link>
+            <Link to="orders">
+              <li
+                onClick={() => {
+                  setIsToggle(!isToggle);
+                }}
+                style={{ fontWeight: "400" }}
+                className=" font-sans  py-3 px-3  text-[18px]"
+              >
+                My Orders
+              </li>
+            </Link>
+            <Link to="/myaccount">
+              <li
+                style={{ fontWeight: "400" }}
+                onClick={() => {
+                  setIsToggle(!isToggle);
+                }}
+                className=" font-sans  py-3 px-3  text-[18px]"
+              >
+                My Account
+              </li>
+            </Link>
+          </ul>
+          <div className="flex gap-x-4 my-5 w-[80%] m-auto px-4">
+            {userId ? (
+              <button
+                onClick={Logout}
+                className=" flex hover:brightness-110   max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white"
+              >
+                logout
               </button>
-            </>
-          )}
+            ) : (
+              <>
+                <button
+                  onClick={() => {
+                    setIsToggle(!isToggle);
+                  }}
+                  className="hover:brightness-110   max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white"
+                >
+                  <Link to="/login">Login</Link>
+                </button>
+                <button
+                  onClick={() => {
+                    setIsToggle(!isToggle);
+                  }}
+                  className="hover:brightness-110  max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white"
+                >
+                  <Link to="/signup">signUp</Link>
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </nav>

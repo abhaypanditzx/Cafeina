@@ -25,7 +25,7 @@ const AddReview = () => {
           type="text"
           rows={5}
           placeholder="share your experience..."
-          className="lg:w-[500px] sm:w-[400px] outline-none max-xs:w-[300px] placeholder:p-2  bg-gray-100 placeholder:text-gray-500"
+          className="lg:w-[500px] sm:w-[400px] outline-none max-xs:w-[300px] placeholder:p-2  bg-gray-200 placeholder:text-gray-500"
         />
       </div>
       <button className="bg-[#5B2E0E] hover:text-white/90 px-4 max-xs:px-2  self-end  mr-4  w-fit py-2 max-xs:py-1 h-fit rounded-md text-white text-base">
