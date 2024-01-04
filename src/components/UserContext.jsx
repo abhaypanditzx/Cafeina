@@ -11,10 +11,10 @@ import { auth } from "../fire.config";
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
+  const [currentProduct, setCurrentProdcut] = useState([]);
   const [coffeeData, setCoffeeData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-
   const [userId, setUserId] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -124,7 +124,10 @@ export const UserProvider = ({ children }) => {
         setSearchResults,
         coffeeData,
         setCoffeeData,
-        isDataLoaded, setIsDataLoaded
+        isDataLoaded,
+        setIsDataLoaded,
+        currentProduct,
+        setCurrentProdcut,
       }}
     >
       {children}

@@ -1,17 +1,28 @@
 import React, { useContext, useEffect, useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import UserContext from "../components/UserContext";
+import { Link } from "react-router-dom";
 const Menu = () => {
-  const { coffeeData, setCoffeeData ,isDataLoaded} = useContext(UserContext);
+  const {
+    coffeeData,
+    setCoffeeData,
+    isDataLoaded,
+    currentProduct,
+    setCurrentProdcut,
+  } = useContext(UserContext);
+  
+  const updatePreviewData = (e) => {
+    setCurrentProdcut(e);
+  };
 
   return (
     <div className="p-5 bg-gray-100">
       {isDataLoaded ? (
         <div className="flex flex-wrap justify-center items-center ">
-          {coffeeData.map((e, index) => {
+          {coffeeData.map((e) => {
             return (
               <div
-                key={`id-${index}`}
+                key={`product-id-${e.id}`}
                 className="border-[1px] bg-white border-gray-200 rounded-md min-w-[300px] m-2"
               >
                 <div className="p-4 ">
@@ -25,12 +36,20 @@ const Menu = () => {
                 </div>
                 <div className="flex flex-col">
                   <div className="flex justify-between border-b items-start py-2 p-2">
-                    <div className="flex flex-col ">
-                      <h1 className="text-lg font-[600] tracking-wide">
+                    <Link
+                      onClick={() => updatePreviewData(e)}
+                      to="/ProductPreview"
+                      className="flex flex-col "
+                    >
+                      <h1
+                        id={`product-name-id-${e.id}`}
+                        className="text-lg font-[600] cursor-pointer tracking-wide"
+                      >
                         {e.name}
                       </h1>
+
                       <h3 className=" text-gray-600 text-xs">{`(${e.flavor_profile})`}</h3>
-                    </div>
+                    </Link>
 
                     <h5 className="text-gray-500 text-sm">{e.weight + "g"}</h5>
                   </div>
@@ -48,7 +67,7 @@ const Menu = () => {
         </div>
       ) : (
         <div className="h-screen w-full flex items-center justify-center">
-          <h1 casssName=" text-lg font-bold ">loading...</h1>
+          <h1 className=" text-lg font-bold ">loading...</h1>
         </div>
       )}
     </div>

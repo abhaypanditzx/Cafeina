@@ -1,5 +1,4 @@
 import NavBar from "./components/NavBar";
-
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Menu from "./Pages/Menu";
@@ -9,6 +8,7 @@ import Footer from "./components/Footer";
 import { useState } from "react";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
+import ProductPreview from "./Pages/ProductPreview";
 
 const App = () => {
   const [activeLink, setActiveLink] = useState("/");
@@ -22,6 +22,7 @@ const App = () => {
         <Route path="orders" element={<Orders />} />
         <Route path="login" element={<Login/>} />
         <Route path="signup" element={<Signup/>} />
+        <Route path="ProductPreview" element={<ProductPreview/>} />
 
         <Route path="menu" element={<Menu />} />
         <Route path="myAccount" element={<MyAccount />} />
