@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import UserContext from "../components/UserContext";
-import { useParams } from "react-router-dom";
+
 
 const ProductPreview = () => {
   const { currentProduct, setCurrentProdcut } = useContext(UserContext);
@@ -27,7 +27,7 @@ const ProductPreview = () => {
               <h1 className="text-2xl text-black font-[500]">{name}</h1>
               <h5 className="text-xl text-gray-800 max-xs:text-sm">{`(${description})`}</h5>
             </div>
-            <div className="flex w-full max-xs:flex-col xs:flex-row items-center ">
+            <div className="flex w-full max-xs:flex-col xs:flex-row xs:items-center ">
               <ul className="flex-col flex p-5 max-w-[400px] gap-y-2">
                 <li className="text-black text-xl font-sans pb-2 font-[590]">
                   Product details
