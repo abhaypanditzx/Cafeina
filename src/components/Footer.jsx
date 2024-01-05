@@ -35,7 +35,7 @@ const Footer = () => {
           <a href="#!" className="mr-6 text-neutral-600 dark:text-neutral-200">
             <FaLinkedin className="h-4 w-4" />
           </a>
-          <a href="#!" className="text-neutral-600 dark:text-neutral-200">
+          <a href="https://www.github.com/abhaypanditzx" className="text-neutral-600 dark:text-neutral-200">
             <FaGithub className="h-4 w-4" />
           </a>
         </div>

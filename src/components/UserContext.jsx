@@ -20,6 +20,7 @@ export const UserProvider = ({ children }) => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("+91 XXXX XXXX XX");
   const [viewPassword, setViewPassword] = useState("password");
+  const [cart,setCart] = useState(0)
 
   const [userName, setUserName] = useState("");
   const [profilePicture, setProfilePicture] = useState("");
@@ -128,6 +129,7 @@ export const UserProvider = ({ children }) => {
         setIsDataLoaded,
         currentProduct,
         setCurrentProdcut,
+        cart,setCart,
       }}
     >
       {children}

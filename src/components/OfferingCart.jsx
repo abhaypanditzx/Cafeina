@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MdNavigateNext } from "react-icons/md";
 import { offeringCart } from "../constant";
+import UserContext from "./UserContext";
 
 const OfferingCart = () => {
   const [display, setDisplay] = useState(false);
+  const {setCart, cart} = useContext(UserContext)
 
   return (
     <div className="flex bg-gray-400 bg-transparent w-[95%]  justify-center relative  m-auto flex-col items- h-full p-2">
@@ -26,7 +28,7 @@ const OfferingCart = () => {
       </span>
       <div className="flex mt-10  max-xs:mt-4 justify-around items-center">
         <h4 className="text-[15px] max-xs:text-[13px] max-[375px]:text-[12px] font-semibold">{e.productPrice}</h4>
-        <button className="px-5 py-1.5 max-xs:py-0.5 max-xs:px-2 max-[375px]:text-[10px] sm:text-sm text-white font-semibold te bg-green-700 max-xs:text-[8px] sm:text-md w-max rounded-2xl ">
+        <button onClick={()=>{setCart(cart+1)}} className="px-5 py-1.5 max-xs:py-0.5 max-xs:px-2 max-[375px]:text-[10px] sm:text-sm text-white font-semibold te bg-green-700 max-xs:text-[8px] sm:text-md w-max rounded-2xl ">
           Add Item
         </button>
       </div>

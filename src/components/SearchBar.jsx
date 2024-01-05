@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import UserContext from "./UserContext";
 import { IoMdSearch } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 const SearchBar = () => {
   const [isInputFocused, setIsInputFocused] = useState(false);
@@ -46,7 +47,7 @@ const SearchBar = () => {
           }}
           id="search-input"
           placeholder="Search..."
-          className="outline-none max-sm:w-[200px] max-xs:w-[140px]   px-2 sm:w-[300px] placeholder:px-4 bg-transparent"
+          className="outline-none max-sm:w-[200px] max-xs:w-[120px]   max-md:w-[250px] px-2 md:w-[240px] placeholder:px-4 bg-transparent"
           value={searchQuery}
           onChange={handleSearch}
           onFocus={handleInputFocus}
@@ -83,9 +84,11 @@ const SearchBar = () => {
             </button>
           </div>
           {searchResults.map((result) => (
-            <div
+     
+            <Link 
               key={result.id}
-              className="flex border-b-[1px] py-2  relative w-full items-center  hover:bg-blue-50 cursor-pointer"
+              className="flex border-b-[1px] py-2 z-50  relative w-full items-center  hover:bg-blue-50 cursor-pointer"
+              to='/orders'
             >
               <img src={result.image_url}  className="max-h-[20px] max-w-[2opx]" alt="" />
               <li
@@ -96,7 +99,8 @@ const SearchBar = () => {
               </li>
               <IoMdSearch className="text-xl  absolute right-4  w-fit text-gray-400 cursor-pointer" />
 
-            </div>
+            </Link>
+    
           ))}
         </ul>
       </div>

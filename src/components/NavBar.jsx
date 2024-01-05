@@ -6,6 +6,7 @@ import { RxCross1 } from "react-icons/rx";
 import logo from "/icon.png";
 import UserContext from "./UserContext";
 import SearchBar from "./SearchBar";
+import { IoCartOutline } from "react-icons/io5";
 const NavBar = (props) => {
   const [isToggle, setIsToggle] = useState(false);
   const { activeLink, setActiveLink } = props;
@@ -16,6 +17,7 @@ const NavBar = (props) => {
     coffeeData,
     searchQuery,
     setSearchQuery,
+    cart
   } = useContext(UserContext);
 
   return (
@@ -56,6 +58,12 @@ const NavBar = (props) => {
           );
         })}
       </ul>
+      {/* cart */}
+    <div className="relative">
+    <IoCartOutline className="text-xl cursor-pointer"/>
+    <span className="absolute top-[0px] right-[0px] bg-red-600  text-white rounded-full p-0.5 text-[10px] flex justify-center items-center h-[11px] w-[11px]">{cart}</span>
+    </div>
+
       {/* LOGIN OR SIGNUP */}
 
       {userId ? (
@@ -66,7 +74,7 @@ const NavBar = (props) => {
           logout
         </button>
       ) : (
-        <div className="flex max-sm:hidden gap-x-2">
+        <div className="flex  max-sm:hidden max-md:absolute top-[5rem] right-[1rem] gap-x-2">
           <button className="hover:brightness-110  max-lg:right-2 lg:right-[7rem]  max-xs:px-2  max-xs:py-1 text-xs hover:scale-95 font-bold py-1.5 px-4 tracking-[1px] rounded-full bg-[#130803] text-white">
             <Link to="/login">Login</Link>
           </button>

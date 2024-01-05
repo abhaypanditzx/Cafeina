@@ -9,6 +9,8 @@ const Menu = () => {
     isDataLoaded,
     currentProduct,
     setCurrentProdcut,
+    setCart,
+    cart
   } = useContext(UserContext);
   
   const updatePreviewData = (e) => {
@@ -55,7 +57,7 @@ const Menu = () => {
                   </div>
                   <div className="flex p-2 justify-between">
                     <h3 className=" text-red-600 text-lg">{"$" + e.price}</h3>
-                    <button className="text-white px-2 items-center gap-x-3 py-1.5 flex text-sm rounded-md hover:bg-green-700 bg-green-600 ">
+                    <button onClick={()=>{setCart(cart+1)}}  className="text-white px-2 items-center gap-x-3 py-1.5 flex text-sm rounded-md hover:bg-green-700 bg-green-600 ">
                       <IoCartOutline />
                       <span>add to cart</span>{" "}
                     </button>
